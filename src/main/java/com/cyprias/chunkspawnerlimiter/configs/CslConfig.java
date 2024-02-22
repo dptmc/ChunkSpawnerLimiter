@@ -44,7 +44,7 @@ public class CslConfig extends ConfigFile<ChunkSpawnerLimiter>{
 		this.checkChunkLoad = config.getBoolean(propertiesPath + "check-chunk-load");
 		this.checkChunkUnload = config.getBoolean(propertiesPath + "check-chunk-unload");
 		this.activeInspections = config.getBoolean(propertiesPath + "active-inspections");
-		this.watchCreatureSpawns =config.getBoolean(propertiesPath + "watch-creature-spawns");
+		this.watchCreatureSpawns = config.getBoolean(propertiesPath + "watch-creature-spawns");
 		this.watchVehicleCreate =config.getBoolean(propertiesPath + "watch-vehicle-spawns");
 		this.checkSurroundingChunks =config.getInt(propertiesPath + "check-surrounding-chunks");
 		this.inspectionFrequency = config.getInt(propertiesPath + "inspection-frequency", 300);

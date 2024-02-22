@@ -4,3 +4,9 @@ target
 *.iml
 sonar.txt
 dependency-reduced-pom.xml
+
+.gradle
+gradlew
+gradlew.bat
+
+build
