@@ -1,9 +1,11 @@
 package com.cyprias.chunkspawnerlimiter.commands
 
 import co.aikar.commands.BaseCommand
+import co.aikar.commands.CommandHelp
 import co.aikar.commands.annotation.CommandAlias
 import co.aikar.commands.annotation.CommandPermission
 import co.aikar.commands.annotation.Description
+import co.aikar.commands.annotation.HelpCommand
 import co.aikar.commands.annotation.Subcommand
 import com.cyprias.chunkspawnerlimiter.ChunkSpawnerLimiter
 import com.cyprias.chunkspawnerlimiter.messages.Command
@@ -60,6 +62,9 @@ class CslCommand(private val plugin: ChunkSpawnerLimiter) : BaseCommand() {
         sender.message("&2&l-- Entity Limits: --")
         sendConfigurationSection(sender, config.entityLimits())
     }
+
+    @HelpCommand
+    fun onHelp(help: CommandHelp) = help.showHelp()
 
     private fun sendConfigurationSection(sender: CommandSender, section: ConfigurationSection) {
         for ((key, value) in section.getValues(false)) {

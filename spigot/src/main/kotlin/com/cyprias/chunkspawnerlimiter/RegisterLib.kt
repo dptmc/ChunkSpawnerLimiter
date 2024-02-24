@@ -15,6 +15,10 @@ object RegisterLib {
     fun registerCommandsAndMetrics() {
         val paperCommandManager = PaperCommandManager(plugin)
         paperCommandManager.registerCommand(CslCommand(plugin))
-        Metrics(plugin, 4195)
+        paperCommandManager.enableUnstableAPI("help")
+        paperCommandManager.enableUnstableAPI("brigadier")
+        if (this.plugin.cslConfig.metrics) {
+            Metrics(plugin, 4195)
+        }
     }
 }

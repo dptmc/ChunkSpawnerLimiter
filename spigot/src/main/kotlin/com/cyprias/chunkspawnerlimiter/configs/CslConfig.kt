@@ -2,6 +2,7 @@ package com.cyprias.chunkspawnerlimiter.configs
 
 import com.cyprias.chunkspawnerlimiter.ChunkSpawnerLimiter
 import org.bukkit.configuration.ConfigurationSection
+import kotlin.properties.Delegates
 
 
 class CslConfig(plugin: ChunkSpawnerLimiter): ConfigFile<ChunkSpawnerLimiter>(
@@ -34,6 +35,8 @@ class CslConfig(plugin: ChunkSpawnerLimiter): ConfigFile<ChunkSpawnerLimiter>(
 
     var excludedWorlds: List<String>? = null
 
+    var metrics by Delegates.notNull<Boolean>()
+
     override fun initValues() {
         this.excludedWorlds = config!!.getStringList("excluded-worlds")
         val propertiesPath = "properties."
@@ -60,6 +63,8 @@ class CslConfig(plugin: ChunkSpawnerLimiter): ConfigFile<ChunkSpawnerLimiter>(
             config!!.getString(messagesPath + "maxAmountBlocksTitle", "&6Cannot place more &4{material}&6.").toString()
         this.maxAmountBlocksSubtitle =
             config!!.getString(messagesPath + "maxAmountBlocksSubtitle", "&6Max amount per chunk &2{amount}.").toString()
+
+        this.metrics = config!!.getBoolean("metrics")
     }
 
     fun getEntityLimit(entityType: String): Int {
